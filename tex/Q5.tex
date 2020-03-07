@@ -91,6 +91,8 @@ $$Var[\sum \limits_{k=1}^K (y^{(k)} - E^{(k)})] = \sum \limits_{k=1}^{K}E[V^{(K)
 \item
 $H_0:$ the survival functions of group A and group B are identical.\\
 We implement the test to the sample in 1.2 using r.
+We first bin the time based on the interger point of the time values and then calculate the Z value with the binned times as k.\\
+We encouter some cases where $V^{(K)}$ are null and $E^{(k)}$ are 0. In these case, as it would not affect the result significantly, we recode the null value as 0 and encorporate them into our calculation.\\
 \begin{lstlisting}[language=R]
 library(dplyr)
 df <- read.table("hw2/df.txt", sep=" ")
